@@ -1,0 +1,8 @@
+.cardContainer {
+  width: 200px;
+  background-color: bisque;
+  color: rgb(30, 63, 134);
+  padding: 8px;
+  border-radius: 24px 24px 0 24px;
+  list-style: none;
+}

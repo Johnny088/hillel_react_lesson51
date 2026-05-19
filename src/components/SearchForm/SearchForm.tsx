@@ -1,6 +1,7 @@
+import css from './SearchForm.module.css';
 export const SearchForm = () => {
   return (
-    <form>
+    <form className={css.formContainer}>
       <label>
         Search
         <input type="text" name="searchValue" />
