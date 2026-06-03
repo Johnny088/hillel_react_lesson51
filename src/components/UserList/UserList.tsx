@@ -11,6 +11,8 @@ export const UserList = () => {
 
   const [searchKey, setSearchKey] = useState('');
 
+  // const [isActive, setIsActive] = useState(false);
+
   const [highlight30Plus, setHighlight30Plus] = useState(false);
 
   const commonUsers = useMemo(() => {
@@ -36,6 +38,8 @@ export const UserList = () => {
   const toggle30Plus = useCallback(() => {
     setHighlight30Plus(prev => !prev);
   }, []);
+
+  // const onUserClick = (id: UserType['id']) => {};
 
   return (
     <>
