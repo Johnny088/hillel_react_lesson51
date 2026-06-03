@@ -3,3 +3,20 @@
   gap: 12px;
   flex-wrap: wrap;
 }
+
+.toggle30 {
+  margin: 60px auto;
+  display: block;
+  width: 220px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  background: linear-gradient(45deg, green, rgb(43, 230, 68), rgb(12, 114, 51));
+  color: rgb(30, 63, 134);
+  padding: 8px;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+}

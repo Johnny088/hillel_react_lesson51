@@ -1,5 +1,5 @@
-import { Layout } from '../Layout/Layout';
+import { UserList } from '../UserList/UserList';
 
 export const App = () => {
-  return <Layout />;
+  return <UserList />;
 };
