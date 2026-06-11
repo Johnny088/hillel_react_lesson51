@@ -6,14 +6,13 @@ import css from './UserList.module.css';
 import { SearchForm } from '../SearchForm/SearchForm';
 export const UserList = () => {
   const [users] = useState<UserType[]>(UsersData);
-
   const [sortOrder, setSortOrder] = useState<'name' | 'age'>('name');
-
   const [searchKey, setSearchKey] = useState('');
-
-  // const [isActive, setIsActive] = useState(false);
-
   const [highlight30Plus, setHighlight30Plus] = useState(false);
+
+  const [isActiveIds, setIsActiveIds] = useState<UserType['id'][]>([]);
+
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const commonUsers = useMemo(() => {
     const filteredUsers: UserType[] =
@@ -39,7 +38,11 @@ export const UserList = () => {
     setHighlight30Plus(prev => !prev);
   }, []);
 
-  // const onUserClick = (id: UserType['id']) => {};
+  const onUserClick = useCallback((id: UserType['id']) => {
+    setIsActiveIds(prev =>
+      prev.includes(id) ? prev.filter(userId => userId !== id) : [...prev, id],
+    );
+  }, []);
 
   return (
     <>
@@ -54,7 +57,11 @@ export const UserList = () => {
         <ul className={css.usersContainer}>
           {commonUsers.map(user => (
             <li key={user.id}>
-              <UserItem item={user} toggle30Plus={highlight30Plus} />
+              <UserItem
+                item={user}
+                isActive={isActiveIds.includes(user.id)}
+                onUserClick={onUserClick}
+              />
             </li>
           ))}
         </ul>
