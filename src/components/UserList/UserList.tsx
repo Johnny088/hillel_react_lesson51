@@ -12,8 +12,6 @@ export const UserList = () => {
 
   const [isActiveIds, setIsActiveIds] = useState<UserType['id'][]>([]);
 
-  const [isActive, setIsActive] = useState<boolean>(false);
-
   const commonUsers = useMemo(() => {
     const filteredUsers: UserType[] =
       searchKey === ''
@@ -29,12 +27,13 @@ export const UserList = () => {
     return sortedUsers;
   }, [users, searchKey, sortOrder]);
 
-  const searchHandler = (search: string, value: 'name' | 'age') => {
+  const searchHandler = useCallback((search: string, value: 'name' | 'age') => {
     setSearchKey(search);
     setSortOrder(value);
-  };
+  }, []);
 
-  const toggle30Plus = useCallback(() => {
+  const toggle30PlusHandler = useCallback(() => {
+    console.log('toggle 30+');
     setHighlight30Plus(prev => !prev);
   }, []);
 
@@ -43,11 +42,11 @@ export const UserList = () => {
       prev.includes(id) ? prev.filter(userId => userId !== id) : [...prev, id],
     );
   }, []);
-
+  console.log('render user list');
   return (
     <>
       <SearchForm onSubmit={searchHandler} />
-      <button className={css.toggle30} onClick={toggle30Plus}>
+      <button className={css.toggle30} onClick={toggle30PlusHandler}>
         Toggle highlight 30+
       </button>
 
@@ -61,6 +60,7 @@ export const UserList = () => {
                 item={user}
                 isActive={isActiveIds.includes(user.id)}
                 onUserClick={onUserClick}
+                toggle30Plus={highlight30Plus}
               />
             </li>
           ))}
