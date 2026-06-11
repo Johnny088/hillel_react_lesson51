@@ -25,12 +25,3 @@
     transform: scale(1.2);
   }
 }
-
-.active {
-  background-color: green;
-  color: white;
-}
-.notActive {
-  background-color: bisque;
-  color: rgb(30, 63, 134);
-}
