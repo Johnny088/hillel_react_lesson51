@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import type { UserType } from '../../types/types';
-import { UsersData } from '../UsersData/UsersData';
+import { UsersData } from '../../UsersData/UsersData';
 import { UserItem } from '../UserItem/UserItem';
 import css from './UserList.module.css';
 import { SearchForm } from '../SearchForm/SearchForm';
