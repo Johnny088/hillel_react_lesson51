@@ -1,6 +1,5 @@
-import type { UserType } from '../../types/types';
-
-export const UsersData: UserType[] = [
+import { type UserType } from '../types/types';
+export const UsersData: userType[] = [
   { id: 1, name: 'James Smith', age: 24 },
   { id: 2, name: 'Mary Johnson', age: 31 },
   { id: 3, name: 'John Williams', age: 22 },
